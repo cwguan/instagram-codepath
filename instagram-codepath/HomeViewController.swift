@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class HomeViewController: UIViewController, UITableViewDataSource {
     
@@ -32,10 +33,21 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 200
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
         queryPosts()
     }
 
+    
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        queryPosts()
+        refreshControl.endRefreshing()
+    }
     
     func queryPosts() {
         // Construct PFQuery
@@ -48,6 +60,8 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         query?.findObjectsInBackground(block: { (posts, error) in
             if let posts = posts {
                 self.posts = posts as! [Post]
+                print(self.posts)
+                self.tableView.reloadData()
             } else {
                 print(error?.localizedDescription)
             }

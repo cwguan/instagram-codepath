@@ -18,6 +18,7 @@ class PostCell: UITableViewCell {
     
     var instagramPost: PFObject! {
         didSet {
+            self.postImageView.file = instagramPost["image"] as? PFFile
             self.postImageView.loadInBackground()
         }
     }
