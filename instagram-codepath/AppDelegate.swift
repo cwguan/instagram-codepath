@@ -30,10 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         // Persisting User Session
-        //if PFUser.current() != nil {
-          //  let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            //window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
-        //}
+        if PFUser.current() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+        }
         
         return true
     }

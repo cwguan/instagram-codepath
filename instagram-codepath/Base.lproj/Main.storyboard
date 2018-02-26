@@ -168,7 +168,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="gBg-91-3aD">
             <objects>
-                <tabBarController storyboardIdentifier="TabBa" automaticallyAdjustsScrollViewInsets="NO" id="Ele-Iq-PTw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Ele-Iq-PTw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0vE-bH-Gsl">
                         <autoresizingMask key="autoresizingMask"/>
@@ -228,6 +228,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GTk-11-HRI"/>
+        <segue reference="eRt-Ra-bLo"/>
     </inferredMetricsTieBreakers>
 </document>
