@@ -28,6 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://floating-dawn-51928.herokuapp.com/parse"
             })
         )
+        
+        // Persisting User Session
+        //if PFUser.current() != nil {
+          //  let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            //window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        //}
+        
         return true
     }
 
