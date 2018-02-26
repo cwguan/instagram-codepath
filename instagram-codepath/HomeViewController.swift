@@ -74,7 +74,30 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         
         let post = posts[indexPath.row]
         
-        cell.postImageView.file = post.media
+        if let imageFile : PFFile = post.media {
+            imageFile.getDataInBackground(block: { (data, error) in
+                if error == nil {
+                    DispatchQueue.main.async {
+                        // Async main thread
+                        let image = UIImage(data: data!)
+                        cell.postImageView.image = image
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            })
+        }
+        
+//        if let photo = post.media {
+//            photo.getDataInBackground(block: { (data, error) in
+//                if let data = data {
+//                    cell.postImageView.image = UIImage(data: data)
+//                } else {
+//                    print("Error: \(String(describing: error?.localizedDescription))")
+//                }
+//            })
+//        }
+       
         cell.captionLabel.text = post.caption
         
         return cell
