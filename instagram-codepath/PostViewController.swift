@@ -13,12 +13,12 @@ class PostViewController: UIViewController {
 
     
     @IBAction func onCancel(_ sender: Any) {
-        performSegue(withIdentifier: "cancelShareSegue", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func onShare(_ sender: Any) {
-        performSegue(withIdentifier: "cancelShareSegue", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

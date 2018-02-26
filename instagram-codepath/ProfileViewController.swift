@@ -13,9 +13,7 @@ class ProfileViewController: UIViewController {
 
     
     
-    @IBAction func onLogout(_ sender: Any) {
-    }
-    
+
     
     
     override func viewDidLoad() {

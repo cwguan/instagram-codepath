@@ -157,9 +157,6 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="piN-eD-Zx1" kind="show" identifier="cancelShareSegue" id="GTk-11-HRI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fA-cM-F6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,7 +224,4 @@
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="eRt-Ra-bLo"/>
-    </inferredMetricsTieBreakers>
 </document>
