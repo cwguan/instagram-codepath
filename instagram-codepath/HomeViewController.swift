@@ -19,6 +19,10 @@ class HomeViewController: UIViewController {
     }
     
     
+    @IBAction func onPost(_ sender: Any) {
+        performSegue(withIdentifier: "postSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

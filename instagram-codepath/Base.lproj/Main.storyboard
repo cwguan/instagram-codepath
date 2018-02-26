@@ -96,6 +96,10 @@
                                 <rect key="frame" x="280" y="9.5" width="79" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="insta_camera_btn"/>
+                                <connections>
+                                    <action selector="onPost:" destination="dIz-B5-j66" eventType="touchUpInside" id="Cax-Zc-93I"/>
+                                    <segue destination="zAj-tp-ZLl" kind="presentation" identifier="postSegue" id="G9A-io-1XD"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -111,17 +115,6 @@
                     <view key="view" contentMode="scaleToFill" id="Alg-uC-GnR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEt-UY-fBg">
-                                <rect key="frame" x="158" y="296" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="onLogout:" destination="no7-X2-RA3" eventType="touchUpInside" id="4tD-QH-xls"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="E1r-86-ZvG"/>
                     </view>
@@ -129,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKq-fs-Oln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="823"/>
+            <point key="canvasLocation" x="1081" y="1021"/>
         </scene>
         <!--Post-->
         <scene sceneID="fiV-4X-uek">
@@ -143,11 +136,34 @@
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="rV3-Gp-F9z">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="pmf-PK-pGk"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="9lf-v0-GCa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1ts-ij-wdH">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="tYm-lT-iks" eventType="touchUpInside" id="3Ll-zZ-gKF"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="h1w-bn-3MQ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z67-FS-kcK">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="onShare:" destination="tYm-lT-iks" eventType="touchUpInside" id="b6Q-eW-VeK"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="piN-eD-Zx1" kind="show" identifier="cancelShareSegue" id="GTk-11-HRI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fA-cM-F6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5039" y="-820"/>
+            <point key="canvasLocation" x="4690" y="-819"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gBg-91-3aD">
@@ -189,6 +205,7 @@
         <!--Post-->
         <scene sceneID="dO7-f7-CQU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xv8-Xb-NL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zAj-tp-ZLl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="insta_camera_btn" selectedImage="insta_camera_btn" id="8rd-vo-NOY"/>
                     <toolbarItems/>
@@ -201,9 +218,8 @@
                         <segue destination="tYm-lT-iks" kind="relationship" relationship="rootViewController" id="UEb-qT-Qah"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xv8-Xb-NL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4265.6000000000004" y="-819.49025487256381"/>
+            <point key="canvasLocation" x="3754" y="-819"/>
         </scene>
     </scenes>
     <resources>
@@ -211,4 +227,7 @@
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GTk-11-HRI"/>
+    </inferredMetricsTieBreakers>
 </document>

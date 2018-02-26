@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import Parse
 
 class PostViewController: UIViewController {
 
+    
+    @IBAction func onCancel(_ sender: Any) {
+        performSegue(withIdentifier: "cancelShareSegue", sender: nil)
+    }
+    
+    
+    @IBAction func onShare(_ sender: Any) {
+        performSegue(withIdentifier: "cancelShareSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
