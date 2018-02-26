@@ -50,17 +50,17 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     
-//    func resize(image: UIImage, newSize: CGSize) -> UIImage {
-//        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
-//        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
-//        resizeImageView.image = image
-//
-//        UIGraphicsBeginImageContext(resizeImageView.frame.size)
-//        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return newImage!
-//    }
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+        resizeImageView.image = image
+
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
     
     
     override func viewDidLoad() {
