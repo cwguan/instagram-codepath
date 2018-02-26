@@ -9,8 +9,12 @@
 import UIKit
 import Parse
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource {
     
+    var posts : [Post] = []
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     
     
     @IBAction func onLogout(_ sender: Any) {
@@ -25,10 +29,49 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        queryPosts()
     }
 
+    
+    func queryPosts() {
+        // Construct PFQuery
+        let query = Post.query()
+        query?.order(byDescending: "createdAt")
+        query?.includeKey("author")
+        query?.limit = 20
+        
+        // Fetch data asynchronously
+        query?.findObjectsInBackground(block: { (posts, error) in
+            if let posts = posts {
+                self.posts = posts as! [Post]
+            } else {
+                print(error?.localizedDescription)
+            }
+        })
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        
+        let post = posts[indexPath.row]
+        
+        cell.postImageView.file = post.media
+        cell.captionLabel.text = post.caption
+        
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
