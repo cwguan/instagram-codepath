@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
-
+    
+    
+    
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut()
+        performSegue(withIdentifier: "logoutSegue", sender: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
