@@ -105,7 +105,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="CNY-WI-mqk" id="S5D-fN-r7r"/>
                                             <outlet property="postImageView" destination="6av-aF-BTt" id="N5G-ej-JcQ"/>
-                                            <segue destination="CmW-9p-X6Z" kind="show" id="Pn5-2P-XN6"/>
+                                            <segue destination="CmW-9p-X6Z" kind="show" identifier="detailSegue" id="Pn5-2P-XN6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
