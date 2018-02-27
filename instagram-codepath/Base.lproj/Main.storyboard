@@ -105,6 +105,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="CNY-WI-mqk" id="S5D-fN-r7r"/>
                                             <outlet property="postImageView" destination="6av-aF-BTt" id="N5G-ej-JcQ"/>
+                                            <segue destination="CmW-9p-X6Z" kind="show" id="Pn5-2P-XN6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -273,6 +274,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xv8-Xb-NL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3754" y="-819"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="5iz-BN-cfp">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="CmW-9p-X6Z" customClass="DetailViewController" customModule="instagram_codepath" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Wt-fx-xqb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r2z-PI-xg8">
+                                <rect key="frame" x="16" y="107" width="343" height="168"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TimeStamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAf-6x-gdw">
+                                <rect key="frame" x="16" y="300" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJv-8j-Q6R">
+                                <rect key="frame" x="16" y="339" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QGO-rX-XBs"/>
+                    </view>
+                    <connections>
+                        <outlet property="captionLabel" destination="KJv-8j-Q6R" id="O7n-fS-KmV"/>
+                        <outlet property="postDetailImageView" destination="r2z-PI-xg8" id="Wem-C6-tnK"/>
+                        <outlet property="timestampLabel" destination="IAf-6x-gdw" id="CeK-JU-E51"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gR-DS-QKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3752.8000000000002" y="-45.42728635682159"/>
         </scene>
     </scenes>
     <resources>

@@ -60,7 +60,6 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         query?.findObjectsInBackground(block: { (posts, error) in
             if let posts = posts {
                 self.posts = posts as! [Post]
-                print(self.posts)
                 self.tableView.reloadData()
             } else {
                 print(error?.localizedDescription)
@@ -87,20 +86,22 @@ class HomeViewController: UIViewController, UITableViewDataSource {
                 }
             })
         }
-        
-//        if let photo = post.media {
-//            photo.getDataInBackground(block: { (data, error) in
-//                if let data = data {
-//                    cell.postImageView.image = UIImage(data: data)
-//                } else {
-//                    print("Error: \(String(describing: error?.localizedDescription))")
-//                }
-//            })
-//        }
        
         cell.captionLabel.text = post.caption
         
         return cell
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            let post = posts[indexPath.row]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.post = post
+        
+        }
+        
     }
     
     
